@@ -32,6 +32,7 @@ public class AopNamespaceHandlerAdviceTypeTests {
 
 	@Test
 	public void testParsingOfAdviceTypes() {
+		System.out.println("哈哈");
 		new ClassPathXmlApplicationContext(getClass().getSimpleName() + "-ok.xml", getClass());
 	}
 
