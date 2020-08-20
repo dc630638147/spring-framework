@@ -59,11 +59,15 @@ public class AnnotationConfigApplicationContext extends GenericApplicationContex
 
 
 	/**
+	 * 调用默认的构造方法会执行父类的构造方法
 	 * Create a new AnnotationConfigApplicationContext that needs to be populated
 	 * through {@link #register} calls and then manually {@linkplain #refresh refreshed}.
 	 */
 	public AnnotationConfigApplicationContext() {
+		//解析 @Configuration注解的类，还可以解析GenericBeanDefinition类
 		this.reader = new AnnotatedBeanDefinitionReader(this);
+		//spring提供api来动态扫描注解
+		//一般提供扩展spring的时候用，内部spring并不是使用这个对象
 		this.scanner = new ClassPathBeanDefinitionScanner(this);
 	}
 
