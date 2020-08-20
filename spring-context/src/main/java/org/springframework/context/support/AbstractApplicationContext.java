@@ -525,10 +525,15 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 			prepareBeanFactory(beanFactory);
 
 			try {
+				/**
+				 * spring过程
+				 * 扫描-parse-validate-life
+				 */
+
 				// Allows post-processing of the bean factory in context subclasses.
 				postProcessBeanFactory(beanFactory);
 
-				// Invoke factory processors registered as beans in the context.
+				//完成了所谓的扫描和parse类
 				invokeBeanFactoryPostProcessors(beanFactory);
 
 				// Register bean processors that intercept bean creation.
@@ -546,7 +551,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 				// Check for listener beans and register them.
 				registerListeners();
 
-				// Instantiate all remaining (non-lazy-init) singletons.
+				//spring开始实例化单例的类，需要validate和life
 				finishBeanFactoryInitialization(beanFactory);
 
 				// Last step: publish corresponding event.
